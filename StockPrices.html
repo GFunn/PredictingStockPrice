@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>StockPrices_v0.1</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>StockPrices</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11784,7 +11784,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11810,7 +11810,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sphist.csv&#39;</span><span class="p">)</span>
@@ -11853,7 +11853,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">stock</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -11889,7 +11889,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -11919,7 +11919,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="n">stock</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
@@ -11964,7 +11964,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;close_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -12008,7 +12008,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="p">[[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -12053,7 +12053,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
@@ -12097,7 +12097,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
@@ -12173,6 +12173,126 @@ The number of holidays in the prior month.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">############ Processing Cell ############</span>
+
+<span class="n">stock1</span> <span class="o">=</span> <span class="n">stock_raw</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">stock1</span> <span class="o">=</span> <span class="n">stock1</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
+
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;close_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;close_30&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;close_365&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1">#########(got mae=16.1424)#########</span>
+
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;volume_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;volume_30&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;volume_365&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1">#########(got mae=16.1213)#########</span>
+
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;std_v5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;std_v30&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;std_v365&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="c1">#########(got mae=16.1393)#########</span>
+
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;High&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Low&#39;</span><span class="p">]</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amp_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amp_30&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amp_365&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;amplitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="c1">#########(got mae=16.0139)#########</span>
+
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;weekdays&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofweek</span>
+<span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;months&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">weekday_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;weekdays&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;weekdays&#39;</span><span class="p">)</span>
+<span class="n">month_dummies</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">stock1</span><span class="p">[</span><span class="s1">&#39;months&#39;</span><span class="p">],</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;months&#39;</span><span class="p">)</span>
+<span class="n">stock1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">stock1</span><span class="p">,</span> <span class="n">weekday_dummies</span><span class="p">,</span> <span class="n">month_dummies</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">day_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">weekday_dummies</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">month_dummies</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="c1">#########(got mae=15.9851)#########</span>
+
+<span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;volume_5&#39;</span><span class="p">,</span> <span class="s1">&#39;volume_30&#39;</span><span class="p">,</span> <span class="s1">&#39;volume_365&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;std_v5&#39;</span><span class="p">,</span> <span class="s1">&#39;std_v30&#39;</span><span class="p">,</span> <span class="s1">&#39;std_v365&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;amp_5&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_30&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_365&#39;</span><span class="p">]</span>
+
+<span class="n">stock1</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">stock1</span> <span class="o">=</span> <span class="n">stock1</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">train1</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="n">test1</span> <span class="o">=</span> <span class="n">stock1</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">stock1</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">day_list</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(16225, 39)
+[&#39;weekdays_0&#39;, &#39;weekdays_1&#39;, &#39;weekdays_2&#39;, &#39;weekdays_3&#39;, &#39;weekdays_4&#39;, &#39;months_1&#39;, &#39;months_2&#39;, &#39;months_3&#39;, &#39;months_4&#39;, &#39;months_5&#39;, &#39;months_6&#39;, &#39;months_7&#39;, &#39;months_8&#39;, &#39;months_9&#39;, &#39;months_10&#39;, &#39;months_11&#39;, &#39;months_12&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">############ Adjusting Cell ############</span>
+
+<span class="n">lr1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+
+<span class="n">feature1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;volume_5&#39;</span><span class="p">,</span> <span class="s1">&#39;volume_30&#39;</span><span class="p">,</span> <span class="s1">&#39;volume_365&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;std_v5&#39;</span><span class="p">,</span> <span class="s1">&#39;std_v30&#39;</span><span class="p">,</span> <span class="s1">&#39;std_v365&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;amp_5&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_30&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_365&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">day_list</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;Close&#39;</span>
+
+<span class="n">lr1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train1</span><span class="p">[</span><span class="n">feature1</span><span class="p">],</span> <span class="n">train1</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+<span class="n">prediction1</span> <span class="o">=</span> <span class="n">lr1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test1</span><span class="p">[</span><span class="n">feature1</span><span class="p">])</span>
+<span class="n">mae1</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">test1</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">prediction1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Absolute Error for using closing price and volumes:&#39;</span><span class="p">,</span> <span class="n">mae1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Absolute Error for using closing price and volumes: 15.9851563779
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
