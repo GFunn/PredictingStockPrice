@@ -11784,7 +11784,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -11792,6 +11792,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="k">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_absolute_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">RandomForestRegressor</span>
 </pre></div>
 
 </div>
@@ -11810,7 +11811,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sphist.csv&#39;</span><span class="p">)</span>
@@ -11853,7 +11854,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">stock</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -11889,7 +11890,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -11919,7 +11920,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span> <span class="o">=</span> <span class="n">stock</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">)</span>
@@ -11964,7 +11965,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;close_5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Close&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
@@ -12008,7 +12009,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stock</span><span class="p">[[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
@@ -12053,7 +12054,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">stock</span><span class="p">[</span><span class="n">stock</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2013</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
@@ -12097,7 +12098,7 @@ Adj Close float64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
@@ -12176,7 +12177,7 @@ The number of holidays in the prior month.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">############ Processing Cell ############</span>
@@ -12253,10 +12254,10 @@ The number of holidays in the prior month.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">############ Adjusting Cell ############</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">############ Linear Regression ############</span>
 
 <span class="n">lr1</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
 
@@ -12296,13 +12297,43 @@ The number of holidays in the prior month.</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">############ Give Random Forest a try ############</span>
+
+<span class="n">rr</span> <span class="o">=</span> <span class="n">RandomForestRegressor</span><span class="p">()</span>
+
+<span class="n">feature1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;close_5&#39;</span><span class="p">,</span> <span class="s1">&#39;close_30&#39;</span><span class="p">,</span> <span class="s1">&#39;close_365&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;volume_5&#39;</span><span class="p">,</span> <span class="s1">&#39;volume_30&#39;</span><span class="p">,</span> <span class="s1">&#39;volume_365&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;std_v5&#39;</span><span class="p">,</span> <span class="s1">&#39;std_v30&#39;</span><span class="p">,</span> <span class="s1">&#39;std_v365&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;amp_5&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_30&#39;</span><span class="p">,</span> <span class="s1">&#39;amp_365&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">day_list</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;Close&#39;</span>
+
+<span class="n">rr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train1</span><span class="p">[</span><span class="n">feature1</span><span class="p">],</span> <span class="n">train1</span><span class="p">[</span><span class="n">target</span><span class="p">])</span>
+<span class="n">prediction1</span> <span class="o">=</span> <span class="n">rr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test1</span><span class="p">[</span><span class="n">feature1</span><span class="p">])</span>
+<span class="n">mae1</span> <span class="o">=</span> <span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">test1</span><span class="p">[</span><span class="n">target</span><span class="p">],</span> <span class="n">prediction1</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean Absolute Error for using closing price and volumes:&#39;</span><span class="p">,</span> <span class="n">mae1</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Mean Absolute Error for using closing price and volumes: 374.929137674
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
